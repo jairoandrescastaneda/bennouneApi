@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  db:
+    build:
+      context: ./bennoune/
+      dockerfile: ./compose/postgres/Dockerfile
+    
+    environment: 
+      - POSTGRES_USER = bennoune
+    ports:
+      - 3000:3000
+  web:
+    build: 
+      context: ./bennoune/
+      dockerfile: ./compose/django/Dockerfile
+    volumes:
+      - .:/code
+    environment:
+      - POSTGRES_USER=bennoune
+      - USE_DOCKER = yes
+    depends_on:
+      - db
+    
+    ports:
+      - 8000:8000
+
+    command: /start.sh
+
