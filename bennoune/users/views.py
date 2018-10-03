@@ -66,5 +66,5 @@ class UserLogout(APIView):
     def post(request):
         if is_authenticated(request.user):
             token = Token.get_object_or_404(Token , key=request.auth)
-        return Response(status=status.H)
+        return Response(status=status.HTTP_200_OK)
 

@@ -45,7 +45,8 @@ THIRD_PARTY = [
 ]
 
 MY_APPS = [
-    'users'
+    'users',
+    'posts'
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + MY_APPS + THIRD_PARTY
